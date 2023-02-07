@@ -21,6 +21,12 @@ class AdminLoginController extends Controller
     {
         return view('admin.forget_password');
     }
+
+    public function forget_password_submit(Request $request)
+    {
+        echo $request->email;
+    }
+    
     public function login_submit(Request $request)
     {
         $request->validate([
