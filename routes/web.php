@@ -14,5 +14,6 @@ Route::get('/', function () {
 
 Route::get('admin/home', [AdminHomeController::class, 'index'])->name('admin_home');
 Route::get('admin/login', [AdminLoginController::class, 'index'])->name('admin_login');
+Route::post('/admin/login-submit', [AdminLoginController::class, 'login_submit'])->name('admin_login_submit');
 Route::get('admin/forget-passwrod', [AdminLoginController::class, 'forget_password'])->name('admin_forget_password');
 
