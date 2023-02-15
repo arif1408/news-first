@@ -107,7 +107,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <a href=""><img src="uploads/ad-1.png" alt=""></a>
+                <a href=""><img src="{{ route('uploads/'.$home_ad_data->above_search_ad) }}" alt=""></a>
             </div>
         </div>
     </div>
