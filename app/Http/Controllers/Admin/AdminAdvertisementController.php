@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\HomeAdvertisement;
 use App\Models\TopAdvertisement;
+use App\Models\SidebarAdvertisement;
 
 class AdminAdvertisementController extends Controller
 {
@@ -90,6 +91,13 @@ class AdminAdvertisementController extends Controller
         $top_ad_data->top_ad_status = $request->top_ad_status;
         $top_ad_data->update();
         return redirect()->back()->with('success','Data is updated successfully');
+    }
+
+
+    public function sidebar_ad_show()
+    {
+        $sidebar_ad_data = SidebarAdvertisement::get();
+        return view('admin.advertisement_sidebar_view',compact('sidebar_ad_data'));
     }
 
 }
