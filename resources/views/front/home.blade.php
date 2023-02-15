@@ -101,7 +101,7 @@
     </div>
 </div>
 
-
+{{-- to show advertisement or not condition --}}
 @if($home_ad_data->above_search_ad_status == 'Show')
 <div class="ad-section-2">
     <div class="container">
