@@ -5,16 +5,14 @@
 @section('main_content')
 
 <div class="section-body">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin_home_ad_update') }}" method="post" enctype="multipart/form-data">
+         @csrf
     <div class="row">
-         
-        <div class="col-6">
+         <div class="col-6">
             <div class="card">
                 <div class="card-body">
                     <h5>Above Search</h5>
-                    
-
-                       <div class="form-group mb-3">
+                     <div class="form-group mb-3">
                             <label>Existing Photo</label>
                             <div>
                                 <img src="{{ asset('uploads/'.$home_ad_data->above_search_ad) }}" alt=""
@@ -33,7 +31,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label>Status</label>
-                           <select name="above_search_ad_url" class="form-control">
+                           <select name="above_search_ad_status" class="form-control">
                         <option value="Show" @if ($home_ad_data->above_search_ad_status == 'Show') selected 
                             @endif >Show</option>
                         <option value="Hide"  @if($home_ad_data->above_search_ad_status == 'Hide') selected 
@@ -69,7 +67,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label>Status</label>
-                           <select name="above-footer_ad_url" class="form-control">
+                           <select name="above_footer_ad_status" class="form-control">
                         <option value="Show" @if( $home_ad_data->above_footer_ad_status == 'Show') selected  @endif >Show</option>
                         <option value="Hide" @if( $home_ad_data->above_footer_ad_status == 'Hide') selected  @endif  >Hide</option>    
                         </select> 
