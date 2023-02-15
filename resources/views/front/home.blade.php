@@ -101,6 +101,8 @@
     </div>
 </div>
 
+
+@if($home_ad_data->above_search_ad_status == 'Show')
 <div class="ad-section-2">
     <div class="container">
         <div class="row">
@@ -110,6 +112,7 @@
         </div>
     </div>
 </div>
+@endif
 
 <div class="search-section">
     <div class="container">
