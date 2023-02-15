@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\HomeAdvertisement;
+use App\Models\TopAdvertisement;
 
 class AdminAdvertisementController extends Controller
 {
@@ -56,4 +57,12 @@ class AdminAdvertisementController extends Controller
         $home_ad_data->update();
         return redirect()->back()->with('success','Data is updated successfully');
     }
+
+
+    public function top_ad_show()
+    {
+        $top_ad_data = TopAdvertisement::where('id',1)->first();
+        return view('admin.advertisement_top_view',compact('top_ad_data'));
+    }
+
 }
