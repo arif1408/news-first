@@ -100,4 +100,36 @@ class AdminAdvertisementController extends Controller
         return view('admin.advertisement_sidebar_view',compact('sidebar_ad_data'));
     }
 
+    public function sidebar_ad_create()
+    {
+        return view('admin.advertisement_sidebar_create');
+    }
+
+    public function sidebar_ad_store(Request $request)
+    {
+// costum perintah pesan
+       
+        $request->validate([
+            'sidebar_ad'=>'required|image|mimes:jpg,jpeg,png,gif',
+             ],[
+                'sidebar_ad.required'=>'Select a photo for ads',
+                'sidebar_ad.image'=>'Photo must be an image',
+                'sidebar_ad.mimes'=>'Correct mimes needed',
+             ]);
+             $now = time();
+
+             $ext = $request->file('sidebar_ad')->extension();
+             $final_name = 'sidebar_ad'.$now.'.'.$ext;
+ 
+             $request->file('sidebar_ad')->move(public_path('uploads/'),$final_name);
+
+             $sidebar_ad_data= new SidebarAdvertisement();
+             $sidebar_ad_data->sidebar_ad =$final_name;
+             $sidebar_ad_data->sidebar_ad_url = $request->sidebar_ad_url;
+             $sidebar_ad_data->sidebar_ad_location = $request->sidebar_ad_location;
+             $sidebar_ad_data->save();
+
+             return redirect()->back()->with('success','Data is updated successfully');
+    }
+
 }
